@@ -4,9 +4,12 @@ import { Wrapper } from "./styled";
 import { COLORS } from "../../style/colors";
 
 
-const Loading = () => {
+const Loading = ({ position, backgroundColor }) => {
   return (
-    <Wrapper>
+    <Wrapper 
+      position={position}
+      backgroundColor={backgroundColor}
+    >
       <ActivityIndicator size="large" color={COLORS.white} />
     </Wrapper>
   );

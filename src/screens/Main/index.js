@@ -7,6 +7,7 @@ import Error from "../../components/Error";
 import SearchInput from "../../components/SearchInput";
 import { COLORS } from "../../style/colors";
 import { useFetchShows } from "../../utils/useFetchShows";
+import { useSearchShows } from "../../utils/useSearchShows";
 
 
 const  NUM_COLUMNS = 2;
@@ -14,31 +15,38 @@ const  NUM_COLUMNS = 2;
 const MainScreen = () => {
 
   const { shows, loading, error, loadMore } = useFetchShows();
+  const { searchedShows, loadingSearch, searchError, setQuery } = useSearchShows();
 
   const renderItem = ({ item }) => (
     <ShowCard
-      showName={item.name}
-      image={item.image.medium}
+      showName={searchedShows.length > 0 ? item.show.name : item.name}
+      image={searchedShows.length > 0 ? item.show?.image?.medium : item.image?.medium}
     />
   );
 
   if (loading) return <Loading />;
-  if (error) return <Error />;
+  if (error || searchError) return <Error />;
 
   return (
     <Wrapper>
       <SearchInput
-        onChangeText={() => {}}
+        onChangeText={(text) => setQuery(text)}
       />
-      <FlatList
-        key={NUM_COLUMNS}
-        data={shows}
-        renderItem={renderItem}
-        onEndReached={loadMore}
-        keyExtractor={item => item.id}
-        numColumns={NUM_COLUMNS}
-        contentContainerStyle={{ flexGrow: 1, backgroundColor: COLORS.gray }}
-      />
+      {loadingSearch ?
+        <Loading
+          position="relative"
+          backgroundColor={COLORS.gray}
+        /> :
+        <FlatList
+          key={item => item.id}
+          data={searchedShows.length > 0 ? searchedShows : shows}
+          renderItem={renderItem}
+          onEndReached={loadMore}
+          keyExtractor={(item, index) => String(index)}
+          numColumns={NUM_COLUMNS}
+          contentContainerStyle={{ flexGrow: 1, backgroundColor: COLORS.gray }}
+        />
+      }
     </Wrapper>
   )
 };

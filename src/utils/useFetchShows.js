@@ -22,7 +22,6 @@ export const useFetchShows = () => {
   };
 
   const loadMore = () => {
-    console.log("loadMore", page)
     setPage((prevPage) => prevPage + 1);
   };
 
