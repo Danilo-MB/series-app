@@ -12,15 +12,16 @@ import { useSearchShows } from "../../utils/useSearchShows";
 
 const  NUM_COLUMNS = 2;
 
-const MainScreen = () => {
+const MainScreen = ({ navigation }) => {
 
   const { shows, loading, error, loadMore } = useFetchShows();
   const { searchedShows, loadingSearch, searchError, setQuery } = useSearchShows();
 
   const renderItem = ({ item }) => (
     <ShowCard
-      showName={searchedShows.length > 0 ? item.show.name : item.name}
-      image={searchedShows.length > 0 ? item.show?.image?.medium : item.image?.medium}
+      showName={item.name}
+      image={item.image?.medium}
+      onPress={() => navigation.navigate("SeriesInfo", { show: item })}
     />
   );
 

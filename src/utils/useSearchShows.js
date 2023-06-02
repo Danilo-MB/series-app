@@ -13,7 +13,7 @@ export const useSearchShows = () => {
     setLoadingSearch(true);
     try {
       const shows = await searchShows(query);
-      setSearchedShows((prevShows) => [...prevShows, ...shows.data]);
+      setSearchedShows((prevShows) => [...prevShows, ...shows.data.map(s => s.show)]);
     } catch (error) {
       setSearchError(true);
     } finally {

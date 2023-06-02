@@ -1,10 +1,10 @@
 import React from "react";
-import MainScreen from "./src/screens/Main";
+import SeriesStack from "./src/screens/Navigation";
 
 
 function App() {
   return (
-    <MainScreen />
+    <SeriesStack />
   );
 };
 
