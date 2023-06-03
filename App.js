@@ -1,10 +1,13 @@
 import React from "react";
 import SeriesStack from "./src/screens/Navigation";
+import { FavoritesProvider } from "./src/context/favoritesContext";
 
 
 function App() {
   return (
-    <SeriesStack />
+    <FavoritesProvider>
+      <SeriesStack />
+    </FavoritesProvider>
   );
 };
 

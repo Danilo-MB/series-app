@@ -1,6 +1,10 @@
 import React from "react";
 import { FlatList } from "react-native";
-import { Wrapper } from "./styled";
+import { 
+  Wrapper,
+  FavoriteWrapper, 
+  Favorite,
+} from "./styled";
 import ShowCard from "./components/ShowCard";
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";
@@ -33,6 +37,9 @@ const MainScreen = ({ navigation }) => {
       <SearchInput
         onChangeText={(text) => setQuery(text)}
       />
+      <FavoriteWrapper onPress={() => navigation.navigate("Favorites")}>
+        <Favorite>★</Favorite>
+      </FavoriteWrapper>
       {loadingSearch ?
         <Loading
           position="relative"
