@@ -22,14 +22,16 @@ const PINValidation = ({ navigation }) => {
     validationSuccess,
     setValidationSuccess,
     storePin,
+    setStorePINSuccess,
     storePINSuccess,
     setPin,
   } = usePINAuth();
 
   const handleChange = (pin) => {
     setPin(prevState => prevState = pin);
-    setValidationError(prevState => prevState = "");
     setValidationSuccess(prevState => prevState = false);
+    setStorePINSuccess(prevState => prevState = false);
+    setValidationError(prevState => prevState = false);
   };
 
   useEffect(() => {
@@ -51,11 +53,11 @@ const PINValidation = ({ navigation }) => {
       {validationError &&
         <ErrorMessage>Your PIN is not correct</ErrorMessage>
       }
-      {storePINSuccess && !validationError &&
+      {storePINSuccess && (
         <StorePinSuccessMessage>
           Your PIN has been saved. Use it to access the app.
         </StorePinSuccessMessage>
-      }
+      )}
       <ButtonWrapper 
         disabled={!pin}
         onPress={existingPin ? validatePin : storePin}
