@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { getEpisodes } from "../services/api/series";
 
 
-export const useFetchEpisodes = () => {
+export const useFetchEpisodes = (showId) => {
 
-  const [showId, setShowId] = useState("");
   const [episodes, setEpisodes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -12,9 +11,13 @@ export const useFetchEpisodes = () => {
   const fetchEpisodes = async () => {
     setLoading(true);
     try {
+      console.log("entro al try")
       const episodes = await getEpisodes(showId);
+      console.log(episodes, "EPISODES EN EL FETCHEPISODES")
       setEpisodes((prevEpisodes) => [...prevEpisodes, ...episodes.data]);
+      console.log("despues del try")
     } catch (error) {
+      console.log(error, "error")
       setError(true);
     } finally {
       setLoading(false);
@@ -27,7 +30,6 @@ export const useFetchEpisodes = () => {
 
   return {
     episodes,
-    setShowId,
     loading,
     error
   }

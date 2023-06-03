@@ -13,14 +13,15 @@ export const useSearchShows = () => {
     setLoadingSearch(true);
     try {
       const shows = await searchShows(query);
-      setSearchedShows((prevShows) => [...prevShows, ...shows.data.map(s => s.show)]);
+      // setSearchedShows((prevShows) => [...prevShows, ...shows.data.map(s => s.show)]);
+      setSearchedShows(shows.data.map(s => s.show))
     } catch (error) {
       setSearchError(true);
     } finally {
       setLoadingSearch(false);
     }
-    const shows = await searchShows(query);
-    setSearchedShows(prevShows => [...prevShows, ...shows.data]);
+    // const shows = await searchShows(query);
+    // setSearchedShows(prevShows => [...prevShows, ...shows.data]);
   };
 
   useEffect(() => {

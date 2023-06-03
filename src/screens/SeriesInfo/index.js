@@ -16,7 +16,7 @@ import { FavoritesContext } from "../../context/favoritesContext";
 const SeriesInfo = ({ route, navigation }) => {
 
   const { show } = route.params;
-  const { episodes, setShowId, loading } = useFetchEpisodes();
+  const { episodes, loading } = useFetchEpisodes(show.id);
   const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
 
   const handleFavoriteToggle = (item) => {
@@ -27,9 +27,9 @@ const SeriesInfo = ({ route, navigation }) => {
     }
   };
 
-  useEffect(() => {
-    setShowId(show.id);
-  }, []);
+  // useEffect(() => {
+  //   setShowId(show.id);
+  // }, []);
 
   console.log(episodes, "episodes")
 
