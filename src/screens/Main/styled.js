@@ -7,7 +7,6 @@ export const Wrapper = styled(View)`
   display: flex;
   flex: 1;
   flex-direction: column;
-  background-color: ${COLORS.black};
 `;
 
 export const FavoriteWrapper = styled(TouchableOpacity)`

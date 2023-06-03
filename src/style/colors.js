@@ -5,7 +5,7 @@ export const COLORS = {
   orange: "#ff6a44",
   purple: "#d0bcf0",
   transparentBlack: "rgba(0, 0, 0, 0.3)",
-  green: "#2bff00",
+  green: "#3c948b",
   red: "#FF0000",
   gunmetal: "#142F3E",
 };

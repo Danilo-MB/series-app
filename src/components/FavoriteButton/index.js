@@ -9,7 +9,7 @@ const FavoriteButton = ({ isFavorite, onPress }) => {
       isFavorite={isFavorite}
     >
       <ButtonText isFavorite={isFavorite}>
-        {isFavorite ? "★" : "☆"}
+        {isFavorite ? "♥" : "♡"}
       </ButtonText>
     </Wrapper>
   )

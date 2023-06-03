@@ -25,6 +25,13 @@ export const ErrorMessage = styled(Text)`
   margin-bottom: 20px;
 `;
 
+export const StorePinSuccessMessage = styled(Text)`
+  color: ${COLORS.green};
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: bold;
+`;
+
 export const InputPIN = styled(TextInput)`
   border-color: ${COLORS.gray};
   border-width: 2px;
@@ -38,9 +45,9 @@ export const InputPIN = styled(TextInput)`
 
 export const ButtonWrapper = styled(TouchableOpacity)`
   width: 50%;
-  border-color: ${props => props.disabled ? COLORS.gray : COLORS.purple};
+  border-color: ${props => props.disabled ? COLORS.gray : COLORS.green};
   border-width: 2px;
-  background-color: ${props => props.disabled ? COLORS.gray : COLORS.purple};
+  background-color: ${props => props.disabled ? COLORS.gray : COLORS.green};
   border-radius: 10px;
   justify-content: center;
   align-items: center;

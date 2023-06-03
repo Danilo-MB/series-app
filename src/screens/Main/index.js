@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FlatList } from "react-native";
 import { 
   Wrapper,
@@ -12,20 +12,33 @@ import SearchInput from "../../components/SearchInput";
 import { COLORS } from "../../style/colors";
 import { useFetchShows } from "../../utils/useFetchShows";
 import { useSearchShows } from "../../utils/useSearchShows";
+import { FavoritesContext } from "../../context/favoritesContext";
 
 
 const  NUM_COLUMNS = 2;
 
 const MainScreen = ({ navigation }) => {
 
+  const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
   const { shows, loading, error, loadMore } = useFetchShows();
   const { searchedShows, loadingSearch, searchError, setQuery } = useSearchShows();
+  
+  const handleFavoriteToggle = (item) => {
+    if (isFavorite(item)) {
+      removeFavorite(item);
+    } else {
+      addFavorite(item);
+    }
+  };
 
   const renderItem = ({ item }) => (
     <ShowCard
       showName={item.name}
       image={item.image?.medium}
+      showScore={item.rating?.average}
       onPress={() => navigation.navigate("SeriesInfo", { show: item })}
+      onPressFav={() => handleFavoriteToggle(item)}
+      isFavorite={isFavorite(item)}
     />
   );
 
@@ -38,12 +51,12 @@ const MainScreen = ({ navigation }) => {
         onChangeText={(text) => setQuery(text)}
       />
       <FavoriteWrapper onPress={() => navigation.navigate("Favorites")}>
-        <Favorite>★</Favorite>
+        <Favorite>♡</Favorite>
       </FavoriteWrapper>
       {loadingSearch ?
         <Loading
           position="relative"
-          backgroundColor={COLORS.gray}
+          backgroundColor={COLORS.green}
         /> :
         <FlatList
           key={item => item.id}

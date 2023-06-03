@@ -3,6 +3,7 @@ import {
   Wrapper, 
   Message,
   ErrorMessage,
+  StorePinSuccessMessage,
   InputPIN,
   ButtonWrapper,
   ButtonText,
@@ -17,10 +18,19 @@ const PINValidation = ({ navigation }) => {
     existingPin, 
     validatePin,
     validationError,
+    setValidationError,
     validationSuccess,
+    setValidationSuccess,
     storePin,
+    storePINSuccess,
     setPin,
   } = usePINAuth();
+
+  const handleChange = (pin) => {
+    setPin(prevState => prevState = pin);
+    setValidationError(prevState => prevState = "");
+    setValidationSuccess(prevState => prevState = false);
+  };
 
   useEffect(() => {
     if (validationSuccess) {
@@ -36,10 +46,15 @@ const PINValidation = ({ navigation }) => {
       <InputPIN
         secureTextEntry
         value={pin}
-        onChangeText={(pin) => setPin(pin)}
+        onChangeText={(pin) => handleChange(pin)}
       />
       {validationError &&
         <ErrorMessage>Your PIN is not correct</ErrorMessage>
+      }
+      {storePINSuccess && !validationError &&
+        <StorePinSuccessMessage>
+          Your PIN has been saved. Use it to access the app.
+        </StorePinSuccessMessage>
       }
       <ButtonWrapper 
         disabled={!pin}

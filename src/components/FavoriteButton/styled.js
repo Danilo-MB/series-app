@@ -12,5 +12,5 @@ export const Wrapper = styled(TouchableOpacity)`
 
 export const ButtonText = styled(Text)`
   color: ${COLORS.white};
-  font-size: 30px;
+  font-size: 20px;
 `;

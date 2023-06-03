@@ -31,7 +31,7 @@ const SeriesInfo = ({ route, navigation }) => {
     setShowId(show.id);
   }, []);
 
-  console.log(episodes, "episodes.")
+  console.log(episodes, "episodes")
 
   return (
     <Wrapper>

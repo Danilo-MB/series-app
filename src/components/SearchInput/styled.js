@@ -9,4 +9,5 @@ export const StyledInput = styled(TextInput)`
   font-weight: bold;
   width: 100%;
   text-align: center;
+  background-color: ${COLORS.black};
 `;

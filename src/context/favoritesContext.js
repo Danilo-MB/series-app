@@ -18,21 +18,21 @@ export const FavoritesProvider = ({ children }) => {
 
   const loadFavorites = async () => {
     try {
-      const favoritesData = await AsyncStorage.getItem('favorites');
+      const favoritesData = await AsyncStorage.getItem("favorites");
       if (favoritesData) {
         setFavorites(JSON.parse(favoritesData));
       }
     } catch (error) {
-      console.log('Error loading favorites:', error);
+      console.log("Error loading favorites:", error);
     }
   };
 
   const saveFavorites = async () => {
     try {
       const favoritesData = JSON.stringify(favorites);
-      await AsyncStorage.setItem('favorites', favoritesData);
+      await AsyncStorage.setItem("favorites", favoritesData);
     } catch (error) {
-      console.log('Error saving favorites:', error);
+      console.log("Error saving favorites:", error);
     }
   };
 
@@ -50,8 +50,8 @@ export const FavoritesProvider = ({ children }) => {
 
   const getSortedFavorites = () => {
     const sortedFavorites = [...favorites].sort((a, b) => {
-      const nameA = a.name.toLowerCase();
-      const nameB = b.name.toLowerCase();
+      const nameA = a.name?.toLowerCase();
+      const nameB = b.name?.toLowerCase();
       if (nameA < nameB) return -1;
       if (nameA > nameB) return 1;
       return 0;

@@ -9,6 +9,7 @@ export const usePINAuth = () => {
   const [pin, setPin] = useState("");
   const [validationError, setValidationError] = useState(false);
   const [validationSuccess, setValidationSuccess] = useState(false);
+  const [storePINSuccess, setStorePINSuccess] = useState(false);
 
   const hashPin = async () => {
     try {
@@ -25,6 +26,7 @@ export const usePINAuth = () => {
       const hashedPin = await hashPin(pin);
       await AsyncStorage.setItem("pin", hashedPin);
       setPin(prevState => prevState = "");
+      setStorePINSuccess(prevState => prevState = true);
     } catch (error) {
       console.error("Error setting PIN:", error);
       throw error;
@@ -65,9 +67,12 @@ export const usePINAuth = () => {
     existingPin,
     setPin,
     storePin,
+    storePINSuccess,
     validatePin,
     validationError,
+    setValidationError,
     validationSuccess,
+    setValidationSuccess,
   }
 
 };
