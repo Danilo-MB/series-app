@@ -27,10 +27,6 @@ export const useSearchShows = () => {
     search(query);
   }, [query]);
 
-  useEffect(() => {
-    if (!query.length) setSearchedShows([]);
-  }, [query]);
-
   return {
     searchedShows,
     setQuery,

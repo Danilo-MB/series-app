@@ -15,9 +15,9 @@ const Summary = ({ summary, align }) => {
 
   const getSummary = () => {
     if (showLongSummary) {
-      return summary.replace(/<[^>]+>/g, "");
+      return summary?.replace(/<[^>]+>/g, "");
     }
-    return `${summary.replace(/<[^>]+>/g, "").slice(0, SUMMARY_LENGTH_LIMIT)}${" (...)"}`;
+    return `${summary?.replace(/<[^>]+>/g, "").slice(0, SUMMARY_LENGTH_LIMIT)}${" (...)"}`;
   };
 
   return (

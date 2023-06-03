@@ -5,6 +5,7 @@ import {
   CardStyleInterpolators,
 } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import PINValidation from "../PINValidation";
 import MainScreen from "../Main";
 import SeriesInfo from "../SeriesInfo";
 import EpisodeInfo from "../EpisodeInfo";
@@ -18,6 +19,14 @@ const SeriesStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="PINValidation"
+          component={PINValidation}
+          options={{
+            headerShown: false,
+            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          }}
+        />
         <Stack.Screen
           name="MainScreen"
           component={MainScreen}

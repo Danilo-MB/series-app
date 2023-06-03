@@ -17,7 +17,7 @@ const SeriesInfo = ({ route, navigation }) => {
 
   const { show } = route.params;
   const { episodes, setShowId, loading } = useFetchEpisodes();
-  const { favorites, addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
+  const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
 
   const handleFavoriteToggle = (item) => {
     if (isFavorite(item)) {
@@ -28,12 +28,10 @@ const SeriesInfo = ({ route, navigation }) => {
   };
 
   useEffect(() => {
-    if (show?.id) {
-      setShowId(show.id);
-    }
+    setShowId(show.id);
   }, []);
 
-  // console.log(episodes, "laa")
+  console.log(episodes, "episodes.")
 
   return (
     <Wrapper>

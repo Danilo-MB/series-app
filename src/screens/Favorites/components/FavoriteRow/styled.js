@@ -22,5 +22,5 @@ export const ShowName = styled(Text)`
 
 export const ShowDetailsText = styled(Text)`
   color: ${COLORS.white};
-  font-size: 14px;
+  font-size: 22px;
 `;

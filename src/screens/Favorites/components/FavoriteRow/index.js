@@ -13,7 +13,7 @@ const FavoriteRow = ({ showName, isFavorite, onPressFav, onPressShow }) => {
     <Wrapper>
       <TouchableOpacity onPress={onPressShow}>
         <ShowName>{showName}</ShowName>
-        <ShowDetailsText>Press for details</ShowDetailsText>
+        <ShowDetailsText>➡</ShowDetailsText>
       </TouchableOpacity>
       <FavoriteButton 
         isFavorite={isFavorite}
