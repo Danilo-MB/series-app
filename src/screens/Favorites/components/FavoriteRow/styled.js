@@ -11,9 +11,16 @@ export const Wrapper = styled(View)`
   padding: 10px;
   border-bottom-width: 1px;
   border-bottom-color: ${COLORS.white};
+  justify-content: space-between;
 `;
 
 export const ShowName = styled(Text)`
   color: ${COLORS.white};
   font-size: 18px;
+  font-weight: bold;
+`;
+
+export const ShowDetailsText = styled(Text)`
+  color: ${COLORS.white};
+  font-size: 14px;
 `;

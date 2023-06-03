@@ -1,15 +1,23 @@
 import React from "react";
-import { Wrapper, ShowName } from "./styled";
+import { TouchableOpacity } from "react-native";
+import { 
+  Wrapper,
+  ShowName,
+  ShowDetailsText
+} from "./styled";
 import FavoriteButton from "../../../../components/FavoriteButton";
 
 
-const FavoriteRow = ({ showName, isFavorite, onPress }) => {
+const FavoriteRow = ({ showName, isFavorite, onPressFav, onPressShow }) => {
   return (
     <Wrapper>
-      <ShowName>{showName}</ShowName>
+      <TouchableOpacity onPress={onPressShow}>
+        <ShowName>{showName}</ShowName>
+        <ShowDetailsText>Press for details</ShowDetailsText>
+      </TouchableOpacity>
       <FavoriteButton 
         isFavorite={isFavorite}
-        onPress={onPress}
+        onPress={onPressFav}
       />
     </Wrapper>
   )

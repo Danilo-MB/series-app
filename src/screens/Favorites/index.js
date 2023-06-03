@@ -29,7 +29,8 @@ const Favorites = ({ navigation }) => {
                 key={favorite.id}
                 showName={favorite.name} 
                 isFavorite={isFavorite(favorite)}
-                onPress={() => removeFavorite(favorite) }
+                onPressFav={() => removeFavorite(favorite)}
+                onPressShow={() => navigation.navigate("SeriesInfo", { show: favorite })}
               />
             ))}
           </FavoritesWrapper>  
