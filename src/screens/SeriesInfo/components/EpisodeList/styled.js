@@ -4,17 +4,20 @@ import { COLORS } from "../../../../style/colors";
 
 
 export const Wrapper = styled(View)`
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  padding-left: 10px;
 `;
 
-export const SummaryText = styled(Text)`
+export const Header = styled(Text)`
+  color: ${COLORS.white};
+  font-size: 20px;
+  font-weight: bold;
+`;
+
+export const Season = styled(Text)`
   color: ${COLORS.white};
   font-size: 18px;
-`;
-
-export const ReadMoreText = styled(Text)`
-  color: ${COLORS.white};
-  font-size: 14px;
   font-weight: bold;
 `;

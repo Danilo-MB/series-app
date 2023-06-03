@@ -7,6 +7,7 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import MainScreen from "../Main";
 import SeriesInfo from "../SeriesInfo";
+import EpisodeInfo from "../EpisodeInfo";
 
 
 const Stack = createStackNavigator();
@@ -27,6 +28,14 @@ const SeriesStack = () => {
         <Stack.Screen
           name="SeriesInfo"
           component={SeriesInfo}
+          options={{
+            headerShown: false,
+            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          }}
+        />
+        <Stack.Screen
+          name="EpisodeInfo"
+          component={EpisodeInfo}
           options={{
             headerShown: false,
             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,

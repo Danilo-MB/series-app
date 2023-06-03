@@ -1,18 +1,17 @@
 import React from "react";
-import { Wrapper, StyledImage, ShowName } from "./styled";
+import { Wrapper, StyledImage, EpisodeName } from "./styled";
 import { DEFAULT_IMAGE } from "../../../../constants";
 
 
-const ImageAndName = ({ showName, image = DEFAULT_IMAGE }) => {
+const ImageAndName = ({ episodeName, episodeNumber, image = DEFAULT_IMAGE }) => {
   return (
     <Wrapper>
       <StyledImage 
         source={{ uri: image }} 
       />
-      <ShowName>{showName}</ShowName>
+      <EpisodeName>{`Episode ${episodeNumber} - ${episodeName}`}</EpisodeName>
     </Wrapper>
   );
-  
 };
 
 export default ImageAndName;

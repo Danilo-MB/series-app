@@ -15,7 +15,7 @@ export const StyledImage = sytled(Image)`
   height: 250px;
 `;
 
-export const ShowName = sytled(Text)`
+export const EpisodeName = sytled(Text)`
   color: ${COLORS.white};
   font-size: 20px;
   font-weight: bold;

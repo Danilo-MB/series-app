@@ -10,7 +10,7 @@ const Genres = ({ genres }) => {
   return (
     <Wrapper>
     {genres.map((genre) => (
-      <GenreWrapper key={genre}>
+      <GenreWrapper key={genre} disabled>
         <Genre>{genre}</Genre>
       </GenreWrapper>
     ))}
