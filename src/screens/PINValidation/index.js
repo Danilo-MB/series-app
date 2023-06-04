@@ -36,7 +36,7 @@ const PINValidation = ({ navigation }) => {
 
   useEffect(() => {
     if (validationSuccess) {
-      navigation.navigate('MainScreen');
+      navigation.navigate('ShowSearch');
     }
   }, [validationSuccess]);
 

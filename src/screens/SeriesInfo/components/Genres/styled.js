@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text } from "react-native";
 import { COLORS } from "../../../../style/colors";
 
 
@@ -12,7 +12,7 @@ export const Wrapper = styled(View)`
   padding: 10px;
 `;
 
-export const GenreWrapper = styled(TouchableOpacity)`
+export const GenreWrapper = styled(View)`
   height: 40px;
   border-color: ${COLORS.gray};
   border-width: 2px;

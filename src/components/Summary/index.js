@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { 
   Wrapper, 
@@ -25,9 +25,11 @@ const Summary = ({ summary, align }) => {
     <Wrapper>
       <SummaryText align={align}>{getSummary()}</SummaryText>
       <TouchableOpacity onPress={() => setShowLongSummary(!showLongSummary)}>
-        <ReadMoreText>
-          {showLongSummary ? "Read less" : "Read more"}
-        </ReadMoreText>
+        {summary &&
+          <ReadMoreText>
+            {showLongSummary ? "Read less" : "Read more"}
+          </ReadMoreText>
+        }
       </TouchableOpacity>
     </Wrapper>
   )

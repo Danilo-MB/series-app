@@ -6,7 +6,7 @@ import {
 } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import PINValidation from "../PINValidation";
-import MainScreen from "../Main";
+import ShowSearch from "../ShowSearch";
 import SeriesInfo from "../SeriesInfo";
 import EpisodeInfo from "../EpisodeInfo";
 import Favorites from "../Favorites";
@@ -15,7 +15,6 @@ import Favorites from "../Favorites";
 const Stack = createStackNavigator();
 
 const SeriesStack = () => {
-
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -28,8 +27,8 @@ const SeriesStack = () => {
           }}
         />
         <Stack.Screen
-          name="MainScreen"
-          component={MainScreen}
+          name="ShowSearch"
+          component={ShowSearch}
           options={{
             headerShown: false,
             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,

@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import { FlatList } from "react-native";
 import { 
   Wrapper,
@@ -17,9 +17,9 @@ import LoadingMore from "./components/LoadingMore";
 
 const  NUM_COLUMNS = 2;
 
-const MainScreen = ({ navigation }) => {
+const ShowSearch = ({ navigation }) => {
 
-  const { shows, loading, loadingMore, setLoadingMore, error, loadMore } = useFetchShows();
+  const { shows, loading, loadingMore, error, loadMore } = useFetchShows();
   const { searchedShows, loadingSearch, searchError, setQuery } = useSearchShows();
   
 
@@ -60,4 +60,4 @@ const MainScreen = ({ navigation }) => {
   )
 };
 
-export default MainScreen;
+export default ShowSearch;

@@ -58,7 +58,6 @@ export const usePINAuth = () => {
   };
 
   useEffect(() => {
-    // AsyncStorage.clear();
     checkExistingPin();
   }, [pin]);
 

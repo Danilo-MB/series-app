@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { ScrollView } from "react-native";
 import { Wrapper } from "./styled";
 import GoBackButton from "../../components/GoBackButton";
