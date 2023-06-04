@@ -14,10 +14,11 @@ const Summary = ({ summary, align }) => {
   const [showLongSummary, setShowLongSummary] = useState(false);
 
   const getSummary = () => {
+    if (!summary) return "No summary available"
     if (showLongSummary) {
       return summary?.replace(/<[^>]+>/g, "");
     }
-    return `${summary?.replace(/<[^>]+>/g, "").slice(0, SUMMARY_LENGTH_LIMIT)}${" (...)"}`;
+    return `${summary?.replace(/<[^>]+>/g, "").slice(0, SUMMARY_LENGTH_LIMIT)}${ " (...)"}`;
   };
 
   return (

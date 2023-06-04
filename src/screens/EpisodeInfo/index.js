@@ -20,7 +20,7 @@ const EpisodeInfo = ({ navigation, route }) => {
       />
       <Season season={episode.episode.season} />
       <Summary 
-        summary={episode.episode.summary} 
+        summary={episode.episode.summary } 
         align="center"
       />
     </Wrapper>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React  from "react";
 import { FlatList } from "react-native";
 import { 
   Wrapper,
@@ -12,37 +12,25 @@ import SearchInput from "../../components/SearchInput";
 import { COLORS } from "../../style/colors";
 import { useFetchShows } from "../../utils/useFetchShows";
 import { useSearchShows } from "../../utils/useSearchShows";
-import { FavoritesContext } from "../../context/favoritesContext";
+import LoadingMore from "./components/LoadingMore";
 
 
 const  NUM_COLUMNS = 2;
 
 const MainScreen = ({ navigation }) => {
 
-  const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
-  const { shows, loading, error, loadMore } = useFetchShows();
+  const { shows, loading, loadingMore, setLoadingMore, error, loadMore } = useFetchShows();
   const { searchedShows, loadingSearch, searchError, setQuery } = useSearchShows();
   
-  const handleFavoriteToggle = (item) => {
-    if (isFavorite(item)) {
-      removeFavorite(item);
-    } else {
-      addFavorite(item);
-    }
-  };
 
   const renderItem = ({ item }) => (
     <ShowCard
-      showName={item.name}
+      show={item}
       image={item.image?.medium}
-      showScore={item.rating?.average}
-      onPress={() => navigation.navigate("SeriesInfo", { show: item })}
-      onPressFav={() => handleFavoriteToggle(item)}
-      isFavorite={isFavorite(item)}
     />
   );
 
-  if (loading) return <Loading />;
+  if (!loadingMore && loading) return <Loading />;
   if (error || searchError) return <Error />;
 
   return (
@@ -63,11 +51,11 @@ const MainScreen = ({ navigation }) => {
           data={searchedShows.length > 0 ? searchedShows : shows}
           renderItem={renderItem}
           onEndReached={loadMore}
-          keyExtractor={(item, index) => String(index)}
           numColumns={NUM_COLUMNS}
-          contentContainerStyle={{ flexGrow: 1, backgroundColor: COLORS.gray }}
+          contentContainerStyle={{ backgroundColor: COLORS.white }}
         />
       }
+      {loadingMore && <LoadingMore />}
     </Wrapper>
   )
 };

@@ -11,11 +11,8 @@ export const useFetchEpisodes = (showId) => {
   const fetchEpisodes = async () => {
     setLoading(true);
     try {
-      console.log("entro al try")
       const episodes = await getEpisodes(showId);
-      console.log(episodes, "EPISODES EN EL FETCHEPISODES")
       setEpisodes((prevEpisodes) => [...prevEpisodes, ...episodes.data]);
-      console.log("despues del try")
     } catch (error) {
       console.log(error, "error")
       setError(true);

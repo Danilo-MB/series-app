@@ -18,6 +18,12 @@ export const ShowName = styled(Text)`
   text-align: center;
 `;
 
+export const ShowRate = styled(Text)`
+  color: ${COLORS.white};
+  font-size: 20px;
+  text-align: center;
+`;
+
 export const ShowImage = styled(Image)`
   width: 100%;
   height: 150px;

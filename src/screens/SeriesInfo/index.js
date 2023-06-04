@@ -27,12 +27,6 @@ const SeriesInfo = ({ route, navigation }) => {
     }
   };
 
-  // useEffect(() => {
-  //   setShowId(show.id);
-  // }, []);
-
-  console.log(episodes, "episodes")
-
   return (
     <Wrapper>
       <ScrollView>

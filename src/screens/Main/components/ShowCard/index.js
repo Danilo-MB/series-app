@@ -1,43 +1,56 @@
-import React from "react";
+import React, { memo, useContext } from "react";
 import {
   MainWrapper,
   ShowName,
+  ShowRate,
   ShowImage,
   ScoreAndFavWrapper,
 } from "./styled";
 import CardButton from "../CardButton";
 import FavoriteButton from "../../../../components/FavoriteButton";
 import { DEFAULT_IMAGE } from "../../../../constants";
+import { FavoritesContext } from "../../../../context/favoritesContext";
+import { useNavigation } from "@react-navigation/native";
 
 
-const ShowCard = ({ 
-  showName,
-  onPress,
-  onPressFav,
-  isFavorite,
+const ShowCard = memo(({
+  show,
   image = DEFAULT_IMAGE,
-  showScore,
 }) => {
+
+  const navigation = useNavigation();
+  const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
+
+  const handleFavoriteToggle = (item) => {
+    if (isFavorite(item)) {
+      removeFavorite(item);
+    } else {
+      addFavorite(item);
+    }
+  };
+
   return (
     <MainWrapper>
       <CardButton
         text="View Info"
-        onPress={onPress}
+        onPress={() => navigation.navigate("SeriesInfo", { show })}
       />
       <ShowImage 
         source={{ uri: image }}
       />
-      <ShowName>{showName}</ShowName>
+      <ShowName>{show?.name}</ShowName>
       <ScoreAndFavWrapper>
         <ShowName>★</ShowName>
-        <ShowName>{showScore}</ShowName>
+        <ShowRate>
+          {show.rating.average ? show?.rating.average : " Not Rated"}
+        </ShowRate>
         <FavoriteButton 
-          isFavorite={isFavorite}
-          onPress={onPressFav}
+          isFavorite={isFavorite(show)}
+          onPress={() => handleFavoriteToggle(show)}
         />
       </ScoreAndFavWrapper>
     </MainWrapper>
   )
-};
+});
 
 export default ShowCard;
