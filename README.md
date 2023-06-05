@@ -29,4 +29,4 @@ To get started with the app, follow these steps:
 2. The devices used for testing the UI were: 
  - Motorola G20 (physical device)
  - Pixel XL API 30 (Android Studio emulator)
-4. The UI was tested with the default screen configuration (default screen and font size). Different configurations may show sone sizing issues I´m planning to address soon.
+4. The UI was tested with the default screen configuration (default screen and font size). Different configurations may show some sizing issues I´m planning to address soon.
