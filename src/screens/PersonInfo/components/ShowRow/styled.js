@@ -7,19 +7,20 @@ export const Wrapper = styled(View)`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-  padding-left: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-right: 10px;
 `;
 
-export const Days = styled(Text)`
+export const ShowName = styled(Text)`
   color: ${COLORS.white};
-  font-size: 17px;
-  margin-right: 10px;
+  font-size: 18px;
 `;
 
-export const Time = styled(Text)`
+export const ViewShow = styled(Text)`
   color: ${COLORS.white};
-  font-size: 17px;
+  font-size: 14px;
+  font-weight: bold;
 `;

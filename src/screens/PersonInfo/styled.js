@@ -1,13 +1,19 @@
 import sytled from "styled-components";
-import { View } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import { COLORS } from "../../style/colors";
 
 
 export const Wrapper = sytled(View)`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  flex: 1;
+  height: 100%;
   background-color: ${COLORS.black};
   align-items: center;
+`;
+
+export const StyledScrollView = sytled(ScrollView)`
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
 `;

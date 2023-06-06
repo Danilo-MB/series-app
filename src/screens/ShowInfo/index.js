@@ -11,12 +11,13 @@ import EpisodeList from "./components/EpisodeList";
 import Loading from "../../components/Loading";
 import { useFetchEpisodes } from "../../utils/useFetchEpisodes";
 import { FavoritesContext } from "../../context/favoritesContext";
+import Error from "../../components/Error";
 
 
-const ShowInfo = ({ route, navigation }) => {
+const ShowInfo = ({ route }) => {
 
   const { show } = route.params;
-  const { episodes, loading } = useFetchEpisodes(show.id);
+  const { episodes, loading, error } = useFetchEpisodes(show.id);
   const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
 
   const handleFavoriteToggle = (item) => {
@@ -26,6 +27,8 @@ const ShowInfo = ({ route, navigation }) => {
       addFavorite(item);
     }
   };
+
+  if (error) return <Error />
 
   return (
     <Wrapper>
@@ -49,7 +52,6 @@ const ShowInfo = ({ route, navigation }) => {
           <Loading position="relative" /> :
           <EpisodeList 
             episodes={episodes}
-            onPress={(episode) => navigation.navigate("EpisodeInfo", { episode })}
           />
         }
       </ScrollView>

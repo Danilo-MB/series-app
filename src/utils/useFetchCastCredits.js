@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getCastCredits } from "../services/api/people";
 
 
-export const useFetchCastCredits = () => {
+export const useFetchCastCredits = (personId) => {
 
   const [castCredits, setCastCredits] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -11,8 +11,8 @@ export const useFetchCastCredits = () => {
   const fetchCastCredits = async () => {
     setLoading(true);
     try {
-      const castCredits = await getCastCredits(page);
-      setCastCredits((prevCastCredits) => [...prevCastCredits, ...castCredits.data]);
+      const castCredits = await getCastCredits(personId);
+      setCastCredits(castCredits.data.map(cc => cc._embedded.show));
     } catch (error) {
       setError(true);
     } finally {

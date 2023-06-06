@@ -38,6 +38,7 @@ export const ScoreAndFavWrapper = styled(View)`
   flex-direction: row;
   width: 100%;
   padding: 10px;
+  align-items: center;
   border-top-width: 1px;
   border-top-color: ${COLORS.white};
 `;

@@ -6,9 +6,13 @@ import {
   Season,
 } from "./styled";
 import EpisodeRow from "../EpisodeRow";
+import { useNavigation } from "@react-navigation/native";
 
 
-const EpisodeList = ({ episodes, season = 1, onPress }) => {
+const EpisodeList = ({ episodes, season = 1 }) => {
+
+  const navigation = useNavigation();
+
   return (
     <Wrapper>
       <Header>Episodes</Header>
@@ -21,7 +25,7 @@ const EpisodeList = ({ episodes, season = 1, onPress }) => {
             key={episode.id}
             episodeName={episode.name}
             episodeNumber={episode.number}
-            onPress={() => onPress(episode)}
+            onPress={() => navigation.navigate("EpisodeInfo", { episode })}
           />
         </View>
       ))}
