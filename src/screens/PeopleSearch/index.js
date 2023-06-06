@@ -1,7 +1,6 @@
 import React from "react";
 import { FlatList } from "react-native";
 import { Wrapper } from "./styled";
-import Header from "../../components/Header";
 import SearchInput from "../../components/SearchInput";
 import Loading from "../../components/Loading";
 import { useFetchPeople } from "../../utils/useFetchPeople";
@@ -33,7 +32,6 @@ const PeopleSearch = () => {
 
   return (
     <Wrapper>
-      <Header />
       <SearchInput
         onChangeText={(text) => setQuery(text)}
         placeholder="Search for people"

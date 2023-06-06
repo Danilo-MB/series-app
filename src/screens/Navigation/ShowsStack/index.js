@@ -4,44 +4,16 @@ import {
   createStackNavigator,
   CardStyleInterpolators,
 } from "@react-navigation/stack";
-import PINValidation from "../PINValidation";
-import ShowSearch from "../ShowSearch";
-import ShowInfo from "../ShowInfo";
-import EpisodeInfo from "../EpisodeInfo";
-import Favorites from "../Favorites";
-import PeopleSearch from "../PeopleSearch";
-import PersonInfo from "../PersonInfo";
-
+import ShowSearch from "../../ShowSearch";
+import ShowInfo from "../../ShowInfo";
+import EpisodeInfo from "../../EpisodeInfo";
+import Favorites from "../../Favorites";
 
 const Stack = createStackNavigator();
 
 const ShowsStack = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="PINValidation"
-        component={PINValidation}
-        options={{
-          headerShown: false,
-          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-        }}
-      />
-      <Stack.Screen
-        name="PeopleSearch"
-        component={PeopleSearch}
-        options={{
-          headerShown: false,
-          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-        }}
-      />
-      <Stack.Screen
-        name="PersonInfo"
-        component={PersonInfo}
-        options={{
-          headerShown: false,
-          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-        }}
-      />
       <Stack.Screen
         name="ShowSearch"
         component={ShowSearch}

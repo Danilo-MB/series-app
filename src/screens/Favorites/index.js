@@ -8,7 +8,6 @@ import {
 import FavoriteRow from "./components/FavoriteRow";
 import { FavoritesContext } from "../../context/favoritesContext";
 import NoFavorites from "./components/NoFavorites";
-import Header from "../../components/Header";
 
 
 const Favorites = ({ navigation }) => {
@@ -18,7 +17,6 @@ const Favorites = ({ navigation }) => {
 
   return (
     <Wrapper>
-      <Header />
       <HeaderText>Favorites</HeaderText>
       <ScrollView>
         {sortedFavorites.length === 0 ?

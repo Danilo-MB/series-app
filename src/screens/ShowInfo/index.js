@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { ScrollView } from "react-native";
 import { Wrapper } from "./styled";
 import GoBackButton from "../../components/GoBackButton";
@@ -12,10 +12,14 @@ import Loading from "../../components/Loading";
 import { useFetchEpisodes } from "../../utils/useFetchEpisodes";
 import { FavoritesContext } from "../../context/favoritesContext";
 import Error from "../../components/Error";
+import { useNavigation } from "@react-navigation/native";
 
 
 const ShowInfo = ({ route }) => {
 
+  const navigation = useNavigation();
+  const routes = navigation.getState()?.routes;
+  const prevRoute = routes[routes.length - 2]; // -2 because -1 is the current route
   const { show } = route.params;
   const { episodes, loading, error } = useFetchEpisodes(show.id);
   const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
@@ -29,6 +33,19 @@ const ShowInfo = ({ route }) => {
   };
 
   if (error) return <Error />
+
+  useEffect(() => {
+    navigation.getParent()?.setOptions({
+      headerShown: false,
+    });
+    return () => {
+      if (prevRoute.name !== "PersonInfo") {
+        navigation.getParent()?.setOptions({
+          headerShown: true,
+        });
+      }
+    }
+   }, [navigation]);
 
   return (
     <Wrapper>

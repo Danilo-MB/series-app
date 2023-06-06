@@ -12,7 +12,7 @@ const EpisodeRow = ({ episodeNumber, episodeName, onPress }) => {
     <Wrapper>
       <EpisodeName>{`${episodeNumber} - ${episodeName}`}</EpisodeName>
       <TouchableOpacity onPress={onPress}>
-        <ViewEpisode>View more</ViewEpisode>
+        <ViewEpisode>View Info</ViewEpisode>
       </TouchableOpacity>
     </Wrapper>
   )

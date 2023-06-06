@@ -1,12 +1,14 @@
 import React from "react";
-import SeriesStack from "./src/screens/Navigation";
+import PINStack from "./src/screens/Navigation/PINStack";
+import NavigationDrawer from "./src/screens/Navigation/Drawer";
 import { FavoritesProvider } from "./src/context/favoritesContext";
 
 
 function App() {
   return (
     <FavoritesProvider>
-      <SeriesStack />
+      {/* <NavigationDrawer /> */}
+      <PINStack />
     </FavoritesProvider>
   );
 };

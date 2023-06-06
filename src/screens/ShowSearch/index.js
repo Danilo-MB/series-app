@@ -9,7 +9,6 @@ import { COLORS } from "../../style/colors";
 import { useFetchShows } from "../../utils/useFetchShows";
 import { useSearchShows } from "../../utils/useSearchShows";
 import LoadingMore from "./components/LoadingMore";
-import Header from "../../components/Header";
 
 
 const  NUM_COLUMNS = 2;
@@ -18,7 +17,7 @@ const ShowSearch = () => {
 
   const { shows, loading, loadingMore, error, loadMore } = useFetchShows();
   const { searchedShows, loadingSearch, searchError, setQuery } = useSearchShows();
-  
+
 
   const renderItem = ({ item }) => (
     <ShowCard
@@ -32,7 +31,6 @@ const ShowSearch = () => {
 
   return (
     <Wrapper>
-      <Header />
       <SearchInput
         placeholder="Search for a show"
         onChangeText={(text) => setQuery(text)}

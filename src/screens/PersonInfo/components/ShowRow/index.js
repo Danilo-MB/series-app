@@ -12,7 +12,7 @@ const ShowRow = ({ showName, onPress }) => {
     <Wrapper>
       <ShowName>{showName}</ShowName>
       <TouchableOpacity onPress={onPress}>
-        <ViewShow>View more</ViewShow>
+        <ViewShow>View Info</ViewShow>
       </TouchableOpacity>
     </Wrapper>
   )
