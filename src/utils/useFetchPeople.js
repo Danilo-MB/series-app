@@ -1,20 +1,20 @@
-import { useState, useEffect } from "react";
-import { getShows } from "../services/api/shows";
+import { useEffect, useState } from "react";
+import { getPeople } from "../services/api/people";
 
 
-export const useFetchShows = () => {
+export const useFetchPeople = () => {
 
-  const [shows, setShows] = useState([]);
+  const [people, setPeople] = useState([]);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState(false);
 
-  const fetchShows = async () => {
+  const fetchPeople = async () => {
     setLoading(true);
     try {
-      const shows = await getShows(page);
-      setShows((prevShows) => [...prevShows, ...shows.data]);
+      const people = await getPeople(page);
+      setPeople((prevPeople) => [...prevPeople, ...people.data]);
     } catch (error) {
       setError(true);
     } finally {
@@ -29,11 +29,11 @@ export const useFetchShows = () => {
   };
 
   useEffect(() => {
-    fetchShows(page);
+    fetchPeople(page);
   }, [page]);
 
   return {
-    shows,
+    people,
     loadMore,
     loading,
     setLoadingMore,

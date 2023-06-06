@@ -6,16 +6,16 @@ import {
   ShowImage,
   ScoreAndFavWrapper,
 } from "./styled";
-import CardButton from "../CardButton";
+import ViewInfoButton from "../../../../components/ViewInfoButton";
 import FavoriteButton from "../../../../components/FavoriteButton";
-import { DEFAULT_IMAGE } from "../../../../constants";
+import { SHOW_DEFAULT_IMAGE } from "../../../../constants";
 import { FavoritesContext } from "../../../../context/favoritesContext";
 import { useNavigation } from "@react-navigation/native";
 
 
 const ShowCard = memo(({
   show,
-  image = DEFAULT_IMAGE,
+  image = SHOW_DEFAULT_IMAGE,
 }) => {
 
   const navigation = useNavigation();
@@ -31,9 +31,9 @@ const ShowCard = memo(({
 
   return (
     <MainWrapper>
-      <CardButton
+      <ViewInfoButton
         text="View Info"
-        onPress={() => navigation.navigate("SeriesInfo", { show })}
+        onPress={() => navigation.navigate("ShowInfo", { show })}
       />
       <ShowImage 
         source={{ uri: image }}

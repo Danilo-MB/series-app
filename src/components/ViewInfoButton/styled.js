@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { TouchableOpacity, Text } from "react-native";
-import { COLORS } from "../../../../style/colors";
+import { COLORS } from "../../style/colors";
 
 
 export const Wrapper = styled(TouchableOpacity)`

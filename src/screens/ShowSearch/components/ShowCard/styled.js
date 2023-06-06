@@ -10,12 +10,16 @@ export const MainWrapper = styled(View)`
   align-items: center;
   background-color: ${COLORS.green};
   margin-bottom: 10px;
+  border-color: ${COLORS.white};
+  border-width: 1px;
 `;
 
 export const ShowName = styled(Text)`
   color: ${COLORS.white};
   font-size: 20px;
   text-align: center;
+  margin-bottom: 4px;
+  margin-top: 4px;
 `;
 
 export const ShowRate = styled(Text)`
@@ -34,4 +38,6 @@ export const ScoreAndFavWrapper = styled(View)`
   flex-direction: row;
   width: 100%;
   padding: 10px;
+  border-top-width: 1px;
+  border-top-color: ${COLORS.white};
 `;

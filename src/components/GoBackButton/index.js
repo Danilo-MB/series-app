@@ -1,11 +1,18 @@
 import React from "react";
 import { Wrapper, ButtonText } from "./styled";
+import { useNavigation } from "@react-navigation/native";
 
 
-const GoBackButton = ({ onPress }) => {
+const GoBackButton = ({ position = "absolute" }) => {
   // TODO: add icon
+
+  const navigation = useNavigation();
+
   return (
-    <Wrapper onPress={onPress}>
+    <Wrapper 
+      position={position}
+      onPress={() => navigation.goBack()}
+    >
       <ButtonText>Go Back</ButtonText>
     </Wrapper>
   )

@@ -3,11 +3,11 @@ import { StyledInput } from "./styled";
 import { COLORS } from "../../style/colors";
 
 
-const SearchInput = ({ onChangeText }) => {
+const SearchInput = ({ onChangeText, placeholder }) => {
   return (
     <StyledInput 
       onChangeText={(text) => onChangeText(text)}
-      placeholder="Search for a show..."
+      placeholder={placeholder}
       placeholderTextColor={COLORS.gray}
     />
   )

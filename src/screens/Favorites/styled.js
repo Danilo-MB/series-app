@@ -11,7 +11,7 @@ export const Wrapper = styled(View)`
   padding-bottom: 20px;
 `;
 
-export const Header = styled(Text)`
+export const HeaderText = styled(Text)`
   color: ${COLORS.white};
   font-size: 20px;
   font-weight: bold;

@@ -6,6 +6,7 @@ export const COLORS = {
   purple: "#d0bcf0",
   transparentBlack: "rgba(0, 0, 0, 0.3)",
   green: "#3c948b",
+  darkGreen: "#195954",
   red: "#FF0000",
   gunmetal: "#142F3E",
 };

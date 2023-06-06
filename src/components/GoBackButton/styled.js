@@ -4,9 +4,9 @@ import { COLORS } from "../../style/colors";
 
 
 export const Wrapper = styled(TouchableOpacity)`
-  position: absolute;
-  top: 10px;
-  left: 5px;
+  position: ${props => props.position ? props.position : "absolute"};
+  top: ${props => props.position === "absolute" ? "10px" : "0px"};
+  left: ${props => props.position === "absolute" ? "5px" : "0px"};
   width: 20%;
   height: 25px;
   background-color: ${COLORS.transparentBlack};

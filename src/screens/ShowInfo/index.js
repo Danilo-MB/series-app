@@ -13,7 +13,7 @@ import { useFetchEpisodes } from "../../utils/useFetchEpisodes";
 import { FavoritesContext } from "../../context/favoritesContext";
 
 
-const SeriesInfo = ({ route, navigation }) => {
+const ShowInfo = ({ route, navigation }) => {
 
   const { show } = route.params;
   const { episodes, loading } = useFetchEpisodes(show.id);
@@ -30,7 +30,7 @@ const SeriesInfo = ({ route, navigation }) => {
   return (
     <Wrapper>
       <ScrollView>
-        <GoBackButton onPress={() => navigation.goBack()} />
+        <GoBackButton/>
         <FavoriteButton 
           isFavorite={isFavorite(show)}
           onPress={() => handleFavoriteToggle(show)}
@@ -57,4 +57,4 @@ const SeriesInfo = ({ route, navigation }) => {
   );
 };
 
-export default SeriesInfo;
+export default ShowInfo;

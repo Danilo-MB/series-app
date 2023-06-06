@@ -2,7 +2,7 @@ import React from "react";
 import { Wrapper, ButtonText } from "./styled";
 
 
-const CardButton = ({ text, onPress }) => {
+const ViewInfoButton = ({ text, onPress }) => {
   return (
     <Wrapper onPress={onPress}>
       <ButtonText>{text}</ButtonText>
@@ -10,4 +10,4 @@ const CardButton = ({ text, onPress }) => {
   )
 };
 
-export default CardButton;
+export default ViewInfoButton;

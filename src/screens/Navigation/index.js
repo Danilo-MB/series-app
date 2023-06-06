@@ -7,9 +7,11 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import PINValidation from "../PINValidation";
 import ShowSearch from "../ShowSearch";
-import SeriesInfo from "../SeriesInfo";
+import ShowInfo from "../ShowInfo";
 import EpisodeInfo from "../EpisodeInfo";
 import Favorites from "../Favorites";
+import PeopleSearch from "../PeopleSearch";
+import PersonInfo from "../PersonInfo";
 
 
 const Stack = createStackNavigator();
@@ -27,6 +29,22 @@ const SeriesStack = () => {
           }}
         />
         <Stack.Screen
+          name="PeopleSearch"
+          component={PeopleSearch}
+          options={{
+            headerShown: false,
+            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          }}
+        />
+        <Stack.Screen
+          name="PersonInfo"
+          component={PersonInfo}
+          options={{
+            headerShown: false,
+            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          }}
+        />
+        <Stack.Screen
           name="ShowSearch"
           component={ShowSearch}
           options={{
@@ -35,8 +53,8 @@ const SeriesStack = () => {
           }}
         />
         <Stack.Screen
-          name="SeriesInfo"
-          component={SeriesInfo}
+          name="ShowInfo"
+          component={ShowInfo}
           options={{
             headerShown: false,
             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,

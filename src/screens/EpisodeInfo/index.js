@@ -7,13 +7,13 @@ import Summary from "../../components/Summary";
 import { ScrollView } from "react-native";
 
 
-const EpisodeInfo = ({ navigation, route }) => {
+const EpisodeInfo = ({ route }) => {
 
   const episode = route.params;
 
   return (
     <Wrapper>
-      <GoBackButton onPress={() => navigation.goBack()} />
+      <GoBackButton />
       <ImageAndName
         episodeName={episode.episode.name}
         episodeNumber={episode.episode.number}

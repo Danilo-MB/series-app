@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
-import { searchShows } from "../services/api/shows";
+import { searchPeople } from "../services/api/people";
 
 
-export const useSearchShows = () => {
+export const useSearchPeople = () => {
 
   const [query, setQuery] = useState("");
-  const [searchedShows, setSearchedShows] = useState([]);
+  const [searchedPeople, setSerchedPeople] = useState([]);
   const [searchError, setSearchError] = useState(false);
   const [loadingSearch, setLoadingSearch] = useState(false);
 
   const search = async () => {
     setLoadingSearch(true);
     try {
-      const shows = await searchShows(query);
-      setSearchedShows(shows.data.map(s => s.show))
+      const people = await searchPeople(query);
+      setSerchedPeople(people.data.map(p => p.person))
     } catch (error) {
       setSearchError(true);
     } finally {
@@ -26,7 +26,7 @@ export const useSearchShows = () => {
   }, [query]);
 
   return {
-    searchedShows,
+    searchedPeople,
     setQuery,
     loadingSearch,
     searchError,

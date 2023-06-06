@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getEpisodes } from "../services/api/series";
+import { getEpisodes } from "../services/api/shows";
 
 
 export const useFetchEpisodes = (showId) => {
@@ -14,7 +14,6 @@ export const useFetchEpisodes = (showId) => {
       const episodes = await getEpisodes(showId);
       setEpisodes((prevEpisodes) => [...prevEpisodes, ...episodes.data]);
     } catch (error) {
-      console.log(error, "error")
       setError(true);
     } finally {
       setLoading(false);
