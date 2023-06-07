@@ -27,6 +27,7 @@ export const useSearchShows = () => {
 
   return {
     searchedShows,
+    query,
     setQuery,
     loadingSearch,
     searchError,

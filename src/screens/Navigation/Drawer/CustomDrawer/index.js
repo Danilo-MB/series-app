@@ -2,15 +2,18 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { TouchableHighlight } from "react-native-gesture-handler";
 import { COLORS } from "../../../../style/colors";
+import { useNavigation } from "@react-navigation/native";
 
 
-const CustomDrawerContent = ({ navigation }) => {
+const SECTIONS = [
+  { label: "Shows", route: "ShowsStack"}, 
+  { label: "People", route: "PeopleStack" },
+  { label: "Favorites", route: "FavoritesStack" },
+];
 
-  const SECTIONS = [
-    { label: "Shows", route: "ShowsStack"}, 
-    { label: "People", route: "PeopleStack" },
-    { label: "Favorites", route: "FavoritesStack" },
-  ];
+const CustomDrawerContent = () => {
+
+  const navigation = useNavigation();
     
   return (
     <View style={styles.container}>

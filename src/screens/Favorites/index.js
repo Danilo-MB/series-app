@@ -8,10 +8,12 @@ import {
 import FavoriteRow from "./components/FavoriteRow";
 import { FavoritesContext } from "../../context/favoritesContext";
 import NoFavorites from "./components/NoFavorites";
+import { useNavigation } from "@react-navigation/native";
 
 
-const Favorites = ({ navigation }) => {
+const Favorites = () => {
 
+  const navigation = useNavigation();
   const { isFavorite, removeFavorite, getSortedFavorites } = useContext(FavoritesContext);
   const sortedFavorites = getSortedFavorites();
 

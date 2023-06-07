@@ -7,13 +7,11 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import PINValidation from "../../PINValidation";
 import NavigationDrawer from "../Drawer";
-import { usePINAuth } from "../../../utils/usePINAuth";
+
 
 const Stack = createStackNavigator();
 
 const PINStack = () => {
-
-  const { showPINScreen } = usePINAuth();
 
   return (
     <NavigationContainer>

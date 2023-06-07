@@ -4,11 +4,11 @@ import { Wrapper } from "./styled";
 import ShowCard from "./components/ShowCard";
 import Loading from "../../components/Loading";
 import Error from "../../components/Error";
+import LoadingMore from "./components/LoadingMore";
 import SearchInput from "../../components/SearchInput";
 import { COLORS } from "../../style/colors";
 import { useFetchShows } from "../../utils/useFetchShows";
 import { useSearchShows } from "../../utils/useSearchShows";
-import LoadingMore from "./components/LoadingMore";
 
 
 const  NUM_COLUMNS = 2;
@@ -17,7 +17,6 @@ const ShowSearch = () => {
 
   const { shows, loading, loadingMore, error, loadMore } = useFetchShows();
   const { searchedShows, loadingSearch, searchError, setQuery } = useSearchShows();
-
 
   const renderItem = ({ item }) => (
     <ShowCard
@@ -52,6 +51,7 @@ const ShowSearch = () => {
       {loadingMore && <LoadingMore />}
     </Wrapper>
   )
+
 };
 
 export default ShowSearch;

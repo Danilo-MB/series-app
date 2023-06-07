@@ -17,10 +17,10 @@ import { useNavigation } from "@react-navigation/native";
 
 const ShowInfo = ({ route }) => {
 
+  const { show } = route.params;
   const navigation = useNavigation();
   const routes = navigation.getState()?.routes;
-  const prevRoute = routes[routes.length - 2]; // -2 because -1 is the current route
-  const { show } = route.params;
+  const prevRoute = routes[routes.length - 2];
   const { episodes, loading, error } = useFetchEpisodes(show.id);
   const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
 
@@ -31,9 +31,7 @@ const ShowInfo = ({ route }) => {
       addFavorite(item);
     }
   };
-
-  if (error) return <Error />
-
+  
   useEffect(() => {
     navigation.getParent()?.setOptions({
       headerShown: false,
@@ -45,7 +43,9 @@ const ShowInfo = ({ route }) => {
         });
       }
     }
-   }, [navigation]);
+  }, [navigation]);
+
+  if (error) return <Error />
 
   return (
     <Wrapper>
@@ -74,6 +74,7 @@ const ShowInfo = ({ route }) => {
       </ScrollView>
     </Wrapper>
   );
+  
 };
 
 export default ShowInfo;

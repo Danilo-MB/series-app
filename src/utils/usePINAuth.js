@@ -10,7 +10,6 @@ export const usePINAuth = () => {
   const [validationError, setValidationError] = useState(false);
   const [validationSuccess, setValidationSuccess] = useState(false);
   const [storePINSuccess, setStorePINSuccess] = useState(false);
-  const [showPINScreen, setShowPINScreen] = useState(true);
 
   const hashPin = async () => {
     try {
@@ -41,7 +40,6 @@ export const usePINAuth = () => {
       if (hashedPin === storedPin) {
         setValidationSuccess(prevState => prevState = true);
         setValidationError(prevState => prevState = false);
-        setShowPINScreen(prevState => prevState = false);
       } else {
         setValidationError(prevState => prevState = true);
       }
@@ -75,7 +73,6 @@ export const usePINAuth = () => {
     setValidationError,
     validationSuccess,
     setValidationSuccess,
-    showPINScreen,
   }
 
 };

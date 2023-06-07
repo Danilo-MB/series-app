@@ -9,10 +9,12 @@ import {
   ButtonText,
 } from "./styled";
 import { usePINAuth } from "../../utils/usePINAuth";
+import { useNavigation } from "@react-navigation/native";
 
 
-const PINValidation = ({ navigation }) => {
+const PINValidation = () => {
 
+  const navigation = useNavigation();
   const { 
     pin, 
     existingPin, 
